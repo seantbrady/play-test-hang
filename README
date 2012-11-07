@@ -1,1 +1,13 @@
 This project demonstrates a problem with using the play.test.FakeApplication in JUnit tests.  The problem is that the Java process appears to "hang" long after tests are complete.  In this example, I have provided 500 tests.  Each test starts and stops a FakeApplication.  The test suite completes in 262 seconds, but the process takes an additional 166 seconds to shutdown.  This problem is magnified with larger test suite sizes.  For example, this same suite with 1000 tests where each test sleeps for 100 ms takes 634 seconds to execute tests, but then hangs for 448 seconds (> 7 minutes).
+
+Java args in framework/build:
+
+
+java ${DEBUG_PARAM} -Duser.timezone=GMT -Xms1024M -Xmx4096M -Xss2M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=1024M -Dfile.encoding=UTF8 -Dplay.version="${PLAY_VERSION}" -Dsbt.ivy.home=`dirname $0`/../repository -Dplay.home=`dirname $0` -Dsbt.boot.properties=`dirname $0`/sbt/sbt.boot.properties -jar `dirname $0`/sbt/sbt-launch.jar "$@"
+
+System specs:
+
+Mac OS 10.8.2
+2.2 GHz Intel Core i7
+8 GB RAM
+SSD
