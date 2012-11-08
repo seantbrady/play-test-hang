@@ -22,6 +22,7 @@ public class BaseTest {
 
     @After
     public void tearDown() {
+        com.avaje.ebeaninternal.server.lib.EbeanShutdownHack.shutdownAllActiveEbeanServers();
         stop(application);
     }
 }

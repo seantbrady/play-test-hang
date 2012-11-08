@@ -11,3 +11,8 @@ Mac OS 10.8.2
 2.2 GHz Intel Core i7
 8 GB RAM
 SSD
+
+
+UPDATE (11/7/2012):
+
+James Roper was able to provide a workaround.  Each EbeanServer is now shutdown at the end of each test instead of all at once at the end of the process.  New results for 500 tests with zero sleep time is 375s (12% improvement).  The remaining issue is that each EbeanServer takes 250ms to shutdown.  Once this is resolved, the speed improvement will be more significant.  The hope is that the current solution will at least scale linearly.
