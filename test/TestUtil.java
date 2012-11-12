@@ -15,6 +15,8 @@ public class TestUtil {
         MyModel newM = MyModel.find.byId(m.id);
         System.out.println(newM.name);
 
+        assertThat(newM).isEqualTo(m);
+
         assertThat(true).isTrue();
     }
 }

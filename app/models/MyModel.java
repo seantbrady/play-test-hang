@@ -1,12 +1,10 @@
 package models;
 
-import play.db.ebean.Model;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class MyModel extends Model {
+public class MyModel extends BaseModel {
 
     @Id
     public Long id;
